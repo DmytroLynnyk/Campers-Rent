@@ -18,8 +18,7 @@ export const fetchCampers = createAsyncThunk(
       // const EditedResponse = { data: editedData, campersCount, promoImages };
       // return EditedResponse;
 
-      console.log(response);
-      return response;
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

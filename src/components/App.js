@@ -27,7 +27,7 @@ export default function App() {
             path="/register"
             // element={
             //   <RestrictedRoute
-            //     redirectTo="/campers"
+            //     redirectTo="/catalog"
             //     component={<RegisterPage />}
             //   />
             // }
@@ -37,14 +37,20 @@ export default function App() {
             path="/login"
             // element={
             //   <RestrictedRoute
-            //     redirectTo="/campers"
+            //     redirectTo="/catalog"
             //     component={<LoginPage />}
             //   />
             // }
             element={<LoginPage />}
           />
           {/* <Route
-            path="/campers"
+            path="/catalog"
+            element={
+              <RestrictedRoute redirectTo="/login" component={<CampersPage />} />
+            }
+          /> */}
+          {/* <Route
+            path="/favorites"
             element={
               <PrivateRoute redirectTo="/login" component={<CampersPage />} />
             }

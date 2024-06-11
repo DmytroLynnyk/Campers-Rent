@@ -1,4 +1,7 @@
 import { DocumentTitle } from 'Layout/DocumentTitle';
+import { useSelector } from 'react-redux';
+import { fetchCampers } from '../redux/campers/operation.js';
+import { selectData } from '../redux/campers/selectors.js';
 
 const styles = {
   container: {
@@ -15,6 +18,9 @@ const styles = {
 };
 
 export default function HomePage() {
+  fetchCampers();
+  const result = useSelector(selectData);
+  console.log(result);
   return (
     <>
       <DocumentTitle>Home</DocumentTitle>

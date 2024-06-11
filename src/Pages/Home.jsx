@@ -1,7 +1,9 @@
 import { DocumentTitle } from 'Layout/DocumentTitle';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers } from '../redux/campers/operation.js';
-import { selectData } from '../redux/campers/selectors.js';
+// import { selectData } from '../redux/campers/selectors.js';
+import { useEffect } from 'react';
 
 const styles = {
   container: {
@@ -18,9 +20,12 @@ const styles = {
 };
 
 export default function HomePage() {
-  fetchCampers();
-  const result = useSelector(selectData);
-  console.log(result);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCampers());
+  }, [dispatch]);
+  // const result = useSelector(selectData);
+  // console.log(result);
   return (
     <>
       <DocumentTitle>Home</DocumentTitle>

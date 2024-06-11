@@ -15,11 +15,11 @@ const slice = createSlice({
   name: 'camperData',
   initialState: {
     campers: [],
+    showedVans: 4,
     isLoading: false,
     error: null,
-    showedVans: 4,
-    favoritesIDs: [],
-    filters: {},
+    // favoritesIDs: [],
+    // filters: {},
   },
   //   reducers: {
   //     switchLoading: (state, action) => {

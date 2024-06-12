@@ -1,6 +1,6 @@
 import { DocumentTitle } from '../Layout/DocumentTitle.jsx';
 import { useDispatch } from 'react-redux';
-import { fetchCampers } from '../redux/campers/operation.js';
+import { fetchAllCampers } from '../redux/campers/operation.js';
 import { useEffect } from 'react';
 
 const styles = {
@@ -20,7 +20,7 @@ const styles = {
 export default function HomePage() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCampers());
+    dispatch(fetchAllCampers());
   }, [dispatch]);
 
   return (

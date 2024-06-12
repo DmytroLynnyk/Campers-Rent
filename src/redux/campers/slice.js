@@ -1,31 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCampers } from '../campers/operation.js';
+import { fetchAllCampers, fetchOneCamper } from '../campers/operation.js';
 
 const handlePending = state => {
   state.loading = true;
 };
 
 const handleRejected = (state, action) => {
+  state.campers = [];
+  state.chosenCamper = {};
   state.loading = false;
   state.error = action.payload;
 };
 
 const slice = createSlice({
-  name: 'camperData',
+  name: 'campers',
   initialState: {
     campers: [],
+    chosenCamper: {},
     isLoading: false,
     error: null,
   },
 
   extraReducers: builder => {
     builder
-      .addCase(fetchCampers.pending, handlePending)
-      .addCase(fetchCampers.fulfilled, (state, action) => {
+      .addCase(fetchAllCampers.pending, handlePending)
+      .addCase(fetchAllCampers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.campers = action.payload;
+        state.chosenCamper = {};
       })
-      .addCase(fetchCampers.rejected, handleRejected);
+      .addCase(fetchAllCampers.rejected, handleRejected)
+
+      .addCase(fetchOneCamper.pending, handlePending)
+      .addCase(fetchOneCamper.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.chosenCamper = action.payload;
+      })
+      .addCase(fetchOneCamper.rejected, handleRejected);
   },
 });
 

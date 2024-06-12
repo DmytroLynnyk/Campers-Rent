@@ -11,16 +11,19 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { camperReducer } from './campers/slice.js';
+import { filtersReducer } from './filters/slice.js';
 
 const camperPersistConfig = {
-  key: 'camperData',
+  key: 'campers',
   storage,
   blacklist: ['filters'],
+  //   whitelist: ['filters'],
 };
 
 export const store = configureStore({
   reducer: {
-    camperData: persistReducer(camperPersistConfig, camperReducer),
+    data: persistReducer(camperPersistConfig, camperReducer),
+    filters: filtersReducer,
   },
 
   middleware: getDefaultMiddleware =>
@@ -31,6 +34,4 @@ export const store = configureStore({
     }),
 });
 
-// const persistor = persistStore(store, null);
-// export { persistor };
 export const persistor = persistStore(store);

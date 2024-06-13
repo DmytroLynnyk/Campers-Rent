@@ -1,4 +1,3 @@
-import { DocumentTitle } from '../Layout/DocumentTitle.jsx';
 import { useDispatch } from 'react-redux';
 import { fetchAllCampers } from '../redux/campers/operation.js';
 import { useEffect } from 'react';
@@ -25,8 +24,6 @@ export default function HomePage() {
 
   return (
     <>
-      <DocumentTitle>Home</DocumentTitle>
-
       <div style={styles.container}>
         <h1 style={styles.title}>Campers rent</h1>
       </div>

@@ -16,7 +16,7 @@ import { filtersReducer } from './filters/slice.js';
 const camperPersistConfig = {
   key: 'campers',
   storage,
-  blacklist: ['filters'],
+  // blacklist: ['filters'],
   //   whitelist: ['filters'],
 };
 

@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
 import { Layout } from '../Layout/Layout';
 import HomePage from '../Pages/Home';
 import CampersPage from '../Pages/CampersPage';
@@ -13,7 +12,6 @@ export default function App() {
           <Route path="/catalog" element={<CampersPage />} />
         </Route>
       </Routes>
-      <Toaster />
     </>
   );
 }

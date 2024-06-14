@@ -1,11 +1,15 @@
-import { NavLink } from 'react-router-dom';
+import { Navigation } from '../Navigation/Navigation';
+import css from './AppBar.module.css';
 
 export const AppBar = () => {
   return (
-    <header>
-      Logo Navigation
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/catalog">Campers</NavLink>
+    <header className={css.header}>
+      <img
+        src="../../image/camperLogo.jpg"
+        alt="Rent a Camp Logo"
+        width="160"
+      />
+      <Navigation />
     </header>
   );
 };
